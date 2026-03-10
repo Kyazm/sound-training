@@ -5,7 +5,7 @@ import type {
 	NoteName,
 	ScaleDegree,
 } from "../../types/music";
-import { getChordInKey, getChordNotes } from "./chords";
+import { getChordInKey } from "./chords";
 
 export const FUNCTIONAL_DISPLAY_NAMES: Record<FunctionalCategory, string> = {
 	tonic: "Tonic (T)",

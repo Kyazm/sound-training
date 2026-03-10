@@ -5,6 +5,7 @@ import type {
 	Key,
 	NoteName,
 	NoteWithOctave,
+	ScaleMode,
 	VoicingType,
 } from "../../types/music";
 import {
