@@ -6,25 +6,12 @@ import { ProgressBar } from "../components/ui/ProgressBar";
 import { useAuthStore } from "../stores/authStore";
 import { DEFAULT_QUESTIONS_PER_SESSION, MAX_LEVELS } from "../stores/trainingStore";
 import { useUserStore } from "../stores/userStore";
-import type { TrainingCategory } from "../types/training";
-
-const CATEGORY_LABELS: Record<TrainingCategory, string> = {
-	interval: "インターバル",
-	progression: "コード進行",
-	scale: "スケール",
-	melody: "メロディ",
-	voicing: "コード & ボイシング",
-	functionalHarmony: "機能和声",
-};
-
-const CATEGORY_PATHS: Record<TrainingCategory, string> = {
-	interval: "/intervals",
-	progression: "/progressions",
-	scale: "/scales",
-	melody: "/melody",
-	voicing: "/voicings",
-	functionalHarmony: "/functional-harmony",
-};
+import {
+	ALL_CATEGORIES,
+	CATEGORY_LABELS,
+	CATEGORY_PATHS,
+	type TrainingCategory,
+} from "../types/training";
 
 const CATEGORY_COLORS: Record<
 	TrainingCategory,
@@ -37,15 +24,6 @@ const CATEGORY_COLORS: Record<
 	voicing: "emerald",
 	functionalHarmony: "indigo",
 };
-
-const ALL_CATEGORIES: TrainingCategory[] = [
-	"interval",
-	"progression",
-	"scale",
-	"melody",
-	"voicing",
-	"functionalHarmony",
-];
 
 export function Stats() {
 	const navigate = useNavigate();

@@ -73,7 +73,7 @@ export function FunctionalHarmony() {
 			{d && (
 				<div className="mb-3 space-y-2">
 					<p className="text-xs text-slate-500">
-						Key: {d.key} {d.mode} — 「{d.standardTitle}」({d.standardComposer})
+						Key: {d.key}{d.mode === "minor" ? "m" : ""} — 「{d.standardTitle}」({d.standardComposer})
 						<span className="ml-2">♩= {d.bpm}</span>
 					</p>
 					<div className="flex flex-wrap items-center gap-1 text-sm">

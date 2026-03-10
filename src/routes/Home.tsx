@@ -6,53 +6,12 @@ import { useSettingsStore } from "../stores/settingsStore";
 import { MAX_LEVELS } from "../stores/trainingStore";
 import { useUserStore } from "../stores/userStore";
 import type { NoteName } from "../types/music";
-import type { TrainingCategory } from "../types/training";
-
-interface CategoryCard {
-	category: TrainingCategory;
-	label: string;
-	description: string;
-	path: string;
-}
-
-const categories: CategoryCard[] = [
-	{
-		category: "interval",
-		label: "インターバル",
-		description: "2音間の音程を聴き取る",
-		path: "/intervals",
-	},
-	{
-		category: "progression",
-		label: "コード進行",
-		description: "ii-V-I等の進行を識別する",
-		path: "/progressions",
-	},
-	{
-		category: "scale",
-		label: "スケール",
-		description: "スケールの種類を聴き取る",
-		path: "/scales",
-	},
-	{
-		category: "melody",
-		label: "メロディ",
-		description: "メロディを聴き取って再現する",
-		path: "/melody",
-	},
-	{
-		category: "voicing",
-		label: "コード & ボイシング",
-		description: "コードの種類とボイシングを聴き分ける",
-		path: "/voicings",
-	},
-	{
-		category: "functionalHarmony",
-		label: "機能和声",
-		description: "T/SD/Dの機能を判定する",
-		path: "/functional-harmony",
-	},
-];
+import {
+	ALL_CATEGORIES,
+	CATEGORY_DESCRIPTIONS,
+	CATEGORY_LABELS,
+	CATEGORY_PATHS,
+} from "../types/training";
 
 export function Home() {
 	const user = useAuthStore((s) => s.user);
@@ -162,7 +121,10 @@ export function Home() {
 					トレーニングを選択
 				</h2>
 				<div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-					{categories.map(({ category, label, description, path }) => {
+					{ALL_CATEGORIES.map((category) => {
+						const label = CATEGORY_LABELS[category];
+						const description = CATEGORY_DESCRIPTIONS[category];
+						const path = CATEGORY_PATHS[category];
 						const progress = categoryProgress[category];
 						const lvl = progress?.currentLevel ?? 1;
 						const attempts = progress?.totalAttempts ?? 0;

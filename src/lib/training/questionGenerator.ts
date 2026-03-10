@@ -44,6 +44,7 @@ export interface ScaleQuestionData {
 
 export interface MelodyQuestionData {
 	root: NoteName;
+	mode?: "major" | "minor";
 	notes: NoteName[];
 	notesWithOctave: NoteWithOctave[];
 	scaleNotes: NoteName[];
@@ -494,6 +495,7 @@ export function generateMelodyQuestion(level: number, fixedRoot?: NoteName): {
 			return {
 				data: {
 					root: std.originalKey,
+					mode: std.mode,
 					notes,
 					notesWithOctave,
 					scaleNotes,

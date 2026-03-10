@@ -100,7 +100,7 @@ export function Melody() {
 		>
 			<div className="mb-1 text-sm text-slate-400">
 				<p>
-					Key: {d?.root ?? "C"}
+					Key: {d?.root ?? "C"}{d?.mode === "minor" ? "m" : ""}
 					{d?.bpm && (
 						<span className="ml-3 text-xs text-slate-500">♩= {d.bpm}</span>
 					)}

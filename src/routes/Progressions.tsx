@@ -73,7 +73,7 @@ export function Progressions() {
 		>
 			{d && (
 				<p className="text-sm text-slate-500">
-					Key: {d.key.root} {d.key.mode}
+					Key: {d.key.root}{d.key.mode === "minor" ? "m" : ""}
 				</p>
 			)}
 			<AnswerGrid
